@@ -30,3 +30,4 @@ Build/
 .vscode/
 .vs/
 *.sln
+*.slnx
