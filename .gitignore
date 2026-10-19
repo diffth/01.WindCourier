@@ -17,6 +17,10 @@ Desktop.ini
 /output/
 output/
 
+# WindCourier Subdirectories
+/WindCourier/*/
+WindCourier/*/
+
 # Unreal Engine & Build Artifacts
 Binaries/
 DerivedDataCache/
