@@ -13,8 +13,11 @@ Desktop.ini
 *.ma
 *.mb
 
-# Unreal Engine & Build Artifacts
+# Output Directories
+/output/
 output/
+
+# Unreal Engine & Build Artifacts
 Binaries/
 DerivedDataCache/
 Intermediate/
