@@ -351,3 +351,12 @@ R1 메뉴·종료 → R4 프로젝트 정보 → R2 타이틀 → R3 설정 → 
   - 나머지 소리(BigSoundBank, Kenney, OpenGameArt 4곡, NPS Bryce 새소리)는 CC0·퍼블릭 도메인 그대로. BigSoundBank는 표기 의무 없이 "Joseph SARDIN - BigSoundBank.com"을 권장, NPS는 출처 언급을 권장.
   - Meshy(약관 2026-09-19판): 무료 요금제 결과물은 Meshy 소유 + CC BY 4.0, 유료는 사용자 소유. 인물 9명을 CC BY로 보고 표기하는 지금 방식이 맞다.
   - OpenAI: 위 키아트 행.
+
+### 출시 빌드 보관 (2026-10-22)
+
+[프로젝트 점검](ZR.프로젝트_점검.md) 5장 "출시 빌드 보관". 빌드와 기호 파일(`.pdb`)이 `D:/AI/ozs/Game/`(HDD 한 개)에만 있어, 그 디스크를 잃으면 이미 내보낸 빌드의 크래시 덤프를 읽을 수 없었다.
+
+- **보관 위치(사용자 2026-10-22)**: `E:/AI_DEV/Game/01.WindCourier_Releases/` — D와 다른 물리 디스크(NVMe). 폴더 규칙은 그 안의 `README.txt`.
+- **규칙**: PC 밖으로 나가는 빌드(itch.io·Steam·Epic 업로드, 등급 신청)는 올리기 전에 `<버전>_<종류>_<빌드 날짜>` 폴더로 통째로(`Windows/`·`Symbols/`·zip) 복사한다. 같은 버전을 다시 빌드해도 덮어쓰지 않고 새 폴더를 만든다 — `.pdb`는 그 빌드의 실행 파일과만 맞는다.
+- **2026-10-22 보관**: `Demo_1.0.0_2026-10-11`(itch.io 데모, 3.8 GB, `WindCourierDemo-Win64-Shipping.pdb` 포함), `1.0.0_Shipping_2026-10-09`(2.1 GB). 파일 79개 수 일치, `.pdb`·`WindCourier.exe`·데모 zip 해시 일치.
+- **남은 일(사용자)**: PC 밖에 한 벌 더(클라우드·외장 디스크). 두 디스크가 같은 PC 안이라 PC를 잃으면 함께 잃는다.
