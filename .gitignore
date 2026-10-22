@@ -20,6 +20,9 @@ output/
 # WindCourier Subdirectories
 /WindCourier/*/
 WindCourier/*/
+# The game has its own repository inside WindCourier/ (2026-10-22); its git files are not this repo's
+/WindCourier/.gitignore
+/WindCourier/.gitattributes
 
 # Unreal Engine & Build Artifacts
 Binaries/

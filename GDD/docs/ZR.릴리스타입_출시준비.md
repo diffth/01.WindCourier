@@ -385,3 +385,8 @@ R1 메뉴·종료 → R4 프로젝트 정보 → R2 타이틀 → R3 설정 → 
 - 게임 소스·에셋(`WindCourier/Source`, `Config`, `Content`, `Scripts`, `SourceArt`)은 **지금 어떤 git 저장소에도 없다.** 이 문서 저장소(`diffth/01.WindCourier`)는 2026-10-19 `WindCourier/*/`를 제외했고(`ea8b7c4`), 그날 프로젝트 폴더가 지금 위치로 옮겨졌다(폴더 날짜). 점검 문서의 `diffth/01.wind-courier`는 GitHub에 없고(404), D·E 드라이브에서 이 게임의 다른 저장소를 찾지 못했다.
 - 그 전에는 저장소가 있었다("10-09 미커밋 변경" 기록). 그 저장소가 다른 PC·드라이브·이름으로 남아 있는지는 사용자 확인.
 - 영향: 1.0.0 이후 무엇이 바뀌었는지 diff로 볼 수 없고(위 8번), 실수로 지운 파일을 되돌릴 수 없으며, 디스크를 잃으면 소스도 잃는다. 출시 빌드 보관(위)은 빌드만 지킨다.
+- **2026-10-22 해결(1단계, 사용자 결정: 로컬 git부터)**: `WindCourier/`에 게임 전용 저장소를 새로 만들었다(이 문서 저장소와 별개, 브랜치 `main`). 원격은 `E:/AI_DEV/Game/01.WindCourier_Source.git`(bare, D와 다른 디스크). 첫 커밋 `01fd9d4` — 파일 2,879개(Content 2,393·Source 194·Scripts 115·SourceArt 158 등), 약 3.9 GB. LFS는 쓰지 않았다(로컬 원격이라 필요 없음).
+  - 빼는 것(`WindCourier/.gitignore`): `Binaries`, `Intermediate`, `DerivedDataCache`, `Saved`, `Build/*/FileOpenOrder`, IDE 파일(`.vs`, `.idea`, `.sln`). 넣은 도구 설정(`.mcp.json`, `.codex` 등)은 로컬 MCP 주소뿐이라 비밀 정보가 없음을 확인했다. `.gitattributes`가 에셋·미디어를 binary로 둔다.
+  - 첫 커밋은 1.0.0 이후 변경이 섞인 상태라 위 8번(`DefaultGame.ini`)은 여전히 diff로 못 본다. 이제부터의 변경은 커밋으로 남는다.
+  - 문서 저장소는 `WindCourier/` 바로 아래 파일 몇 개(`WindCourier.uproject`, `FLIGHT_TEST.md` 등)를 계속 함께 추적한다 — 두 저장소에 같이 기록된다. 새 저장소의 `.gitignore`·`.gitattributes`는 문서 저장소에서 제외했다.
+  - **남은 일**: PC 밖 사본(2단계) — GitHub 비공개 + LFS로 원격만 추가한다. 그때 큰 파일을 LFS로 옮기는 `git lfs migrate`가 필요하다(100 MB 넘는 파일 2개, Megaplants 3.1 GB).
