@@ -402,3 +402,95 @@ AI 사용 고지: 이 게임은 개발 과정에서 생성형 AI를 사용했습
 
 의견·오류·튕김은 아래 댓글로 알려 주세요.
 ```
+
+## 12. 지원 연락처·개인정보·크래시 보고 (2026-10-22 초안)
+
+> [프로젝트 점검](ZR.프로젝트_점검.md) 5장 "빠져 있는 것"의 세 줄(지원 연락처·개인정보 안내, 크래시 보고 받는 길). 상태: 초안(사용자 검토 전). **지원 메일 주소는 사용자가 정한다** — 아래 `[지원 메일]` 자리. 개인 메일 대신 이 게임 전용 주소(예: 새 Gmail)를 권한다. 스토어 페이지에 공개되고 등급분류·크레딧에도 같은 주소를 쓰게 된다.
+
+### 12-1. 왜 메일이 필요한가
+
+- 지금 창구는 Steam 토론 게시판(Release README)과 itch.io 댓글(데모)뿐이다. 둘 다 **파일을 붙일 수 없다**. 그런데 README는 `Saved\Crashes` 폴더를 "압축해 보내 달라"고만 하고 보낼 곳이 없다.
+- 그래서 **토론 게시판 = 의견·질문, 메일 = 크래시 파일**로 나눈다. 게시판에 쓰면 메일 주소를 답으로 알려 주는 것만으로도 되지만, 처음부터 적어 두는 편이 한 번 덜 오간다.
+
+### 12-2. Steamworks 지원 정보
+
+Steamworks 앱 관리 → 스토어 페이지 → 기본 정보의 지원 정보 칸(포털 확인).
+
+| 칸 | 값 |
+|---|---|
+| 지원 웹사이트 | 비워 둔다(전용 사이트 없음). 나중에 itch.io 페이지를 쓸 수 있다 |
+| 지원 이메일 | `[지원 메일]` |
+| 토론 게시판 | 켠다. 고정 글은 12-5 |
+
+Epic도 포털에서 지원 연락처와 **개인정보 처리방침 URL**을 받을 수 있다(필수 여부 포털 확인). 필수면 12-4 글을 itch.io 페이지 아래나 GitHub Pages 같은 공개 페이지 하나에 올리고 그 주소를 넣는다 — 저장소는 Fab 에셋 때문에 비공개를 유지해야 하므로(점검 7장) 별도 공개 저장소나 페이지로 한다.
+
+### 12-3. 근거 — 이 게임이 수집하는 것
+
+2026-10-22 코드·설정을 훑어 확인했다(게임을 돌려 네트워크를 지켜본 것은 아니다).
+
+- 네트워크 코드가 없다: Http·Socket·Online Subsystem·Analytics 모듈을 쓰지 않고, Steam·Epic SDK도 없다(10장 결정 A).
+- 비행 기록 CSV(`Saved/FlightTelemetry`)는 PC에만 쓰고, Shipping에서는 빠진다(점검 7장 "출시판 뒷문").
+- 크래시 리포터는 들어 있지만 보낼 서버가 없어 `Saved\Crashes`에만 남는다(출시 준비 Q5).
+- 세이브(`FlightDay.sav`)는 날짜·탱크·편지 상태뿐이다. Steam Auto-Cloud가 이 파일을 Steam 계정에 올리는데, 이것은 Steam의 기능이고 게임이 보내는 것이 아니다.
+- 확인할 것(사람): 방화벽으로 막은 PC에서 Shipping이 아무 경고 없이 도는지 한 번. 엔진 기본 기능이 몰래 연결을 시도하는지 이것으로 같이 본다.
+
+### 12-4. 개인정보 안내 문구
+
+스토어 긴 소개 맨 아래(또는 Epic 처리방침 페이지)에 넣는다.
+
+**한국어**
+
+```
+개인정보: 바람 배달부는 인터넷에 연결하지 않으며, 플레이어 정보나 플레이 기록을 수집·전송하지 않습니다. 세이브와 설정은 이 PC의 %LOCALAPPDATA%\WindCourier\Saved 에만 저장됩니다(Steam 클라우드를 켜면 Steam이 세이브를 계정에 보관합니다). 크래시 기록도 자동으로 보내지지 않습니다. 메일로 보내 주신 크래시 파일은 원인을 찾는 데만 쓰고, 해결 뒤 지웁니다.
+문의: [지원 메일]
+```
+
+**English**
+
+```
+Privacy: Wind Courier does not connect to the internet and does not collect or send any player data or play records. Saves and settings stay on this PC in %LOCALAPPDATA%\WindCourier\Saved (with Steam Cloud on, Steam keeps your save in your account). Crash reports are never sent automatically. Crash files you email us are used only to find the problem and are deleted once it is fixed.
+Contact: [지원 메일]
+```
+
+독·프·이·스는 2-1장과 같이 AI 번역으로 붙이되, 원어민 검수 전이라는 점은 같다.
+
+### 12-5. Steam 토론 게시판 고정 글
+
+제목: `버그·튕김 신고 방법 / How to report bugs and crashes`
+
+```
+[한국어]
+막힌 곳, 이상한 화면, 소리 문제는 이 게시판에 새 글로 알려 주세요. 아래를 함께 적어 주시면 빨리 찾을 수 있습니다.
+- 몇 일차, 어느 노선·마을 근처였는지
+- 키보드인지 게임패드인지, 화면 해상도와 그래픽 품질
+- 게임 버전(타이틀 화면 종이의 왼쪽 아래, 또는 일시정지 메뉴)
+
+게임이 튕겼다면:
+1. Win+R → %LOCALAPPDATA%\WindCourier\Saved\Crashes 입력 → 확인
+2. 가장 최근 폴더(UECC-로 시작)를 압축합니다
+3. [지원 메일] 로 보내 주세요. 이 게시판에는 파일을 붙일 수 없습니다.
+크래시 파일에는 PC 사양과 게임 로그가 들어 있고, 다른 개인 파일은 들어 있지 않습니다.
+
+[English]
+Please post a new thread for anything that got you stuck, looked wrong or sounded off. It helps a lot to include:
+- which day, and near which route or village
+- keyboard or gamepad, screen resolution and graphics quality
+- the game version (bottom left of the title card, or in the pause menu)
+
+If the game crashed:
+1. Press Win+R, type %LOCALAPPDATA%\WindCourier\Saved\Crashes and press OK
+2. Zip the newest folder (it starts with UECC-)
+3. Email it to [지원 메일] — files can't be attached here.
+The crash files contain your PC specs and the game log, and no other personal files.
+```
+
+- 버전 표기: 코드에서 타이틀 종이 왼쪽 아래와 일시정지 메뉴에 `Wind Courier 1.0.0`(데모는 ` demo`)을 그리는 것을 확인했다(`AFlightTestHUD::GetBuildName`).
+- 확인할 것: 크래시 폴더 안 `CrashContext.runtime-xml`에 PC 사용자 이름이 경로로 들어갈 수 있다. "다른 개인 파일은 없다"는 맞지만, 사용자 이름까지 없다고는 쓰지 않았다.
+
+### 12-6. Release README에 고칠 곳
+
+`SourceArt/Release/README_읽어주세요.txt`의 "의견과 오류" 두 번째 줄의 "보내 주시면"에 보낼 곳을 넣는다. 지원 메일이 정해지면 고치고 다음 빌드(1.0.x)에 들어간다.
+
+- 한: `어디서 튕겼는지와 함께 그 폴더를 압축해 [지원 메일] 로 보내 주시면 원인을 찾는 데 큰 도움이 됩니다. (자동으로 전송되지는 않습니다)`
+- 영: `Zipping that folder and emailing it to [지원 메일] with where it happened helps a lot. (Nothing is sent automatically.)`
+- 데모 안내문(`SourceArt/Demo/README_읽어주세요.txt` 47·89행 근처)에도 같은 "보내 주시면" 줄이 있어 같이 고친다. itch.io 페이지의 "아래 댓글로" 줄에도 메일을 덧붙인다.
