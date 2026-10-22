@@ -370,7 +370,7 @@ R1 메뉴·종료 → R4 프로젝트 정보 → R2 타이틀 → R3 설정 → 
 | 1 | 휠 먼지 투명도 0.7 | `CourierJenny.cpp`(10-09 18:08, 빌드 4분 뒤) | 소스에 있음, 1.0.0에는 없음(데모에는 들어감) | 화면이 조금 다름 — 스크린샷·트레일러는 그대로 써도 된다고 본다 |
 | 2 | 크레딧 Freesound 이름 `Alcappuccino` → `kyles` | `FlightTestHUD.cpp` `DrawCredits`(10-11) | 소스에 있음 | 크레딧 화면 |
 | 3 | 독·스 "투하 가능" 안내를 "E / gamepad A"로 | `Content/FlightTest/Data/Translations/de.json`·`es.json`(10-11) | 소스에 있음 | 독·스 HUD 한 줄 |
-| 4 | 체험판 대상 `WINDCOURIER_DEMO` | `FlightTestSession.*`, `FlightTestHUD.cpp`, `WindCourierDemo.Target.cs`, `DefaultEngine.ini`(`DefaultGameTarget`, 10-11) | 소스에 있음 | 정식판은 0이라 동작이 같아야 한다 — **정식판 빌드에서 2일차 뒤 데모 카드가 뜨지 않는지** 확인 |
+| 4 | 체험판 대상 `WINDCOURIER_DEMO` | `FlightTestSession.*`, `FlightTestHUD.cpp`, `WindCourierDemo.Target.cs`, `DefaultEngine.ini`(`DefaultGameTarget`, 10-11) | 소스에 있음 | 정식판은 0이라 동작이 같다 — **코드로 확인(2026-10-22)**: `WINDCOURIER_DEMO`를 쓰는 세 곳(버전 표기 " demo", 휴식 때 2일차 뒤 멈춤, 데모 끝 카드)이 모두 이 값으로 막혀 있고, 정의는 `WindCourierDemo.Target.cs`에만 있다. `package_build.ps1`은 `-Demo` 없이 `WindCourier` 대상으로 빌드한다. 사람 확인 A(엔딩까지 한 판)에서 3일차가 열리면 실기로도 확인된다 |
 | 5 | `-FlightReleaseHUD` | `FlightTestHUD.cpp`(10-11) | 소스에 있음 | 개발 빌드 전용, Shipping 영향 없음 |
 | 6 | Release README 크래시 메일 `info@ozs.co.kr` | `SourceArt/Release/README_읽어주세요.txt`(10-22) | 고침 | 패키지 안내문 |
 | 7 | 글자 크기 130 % 설정 화면 넘침 | `FlightTestHUD.cpp` UI 배율(Steam 출시 준비 7-1) | **할 일**(사용자 결정 2026-10-22) | 설정 화면 |
