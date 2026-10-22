@@ -80,7 +80,7 @@
 | ~~README 목차~~ | **2026-10-22 갱신** — `ZR.스팀_출시_준비`, `ZR.스토어_페이지_초안`, `ZR.사람확인_목록`, `ZR.등급분류_신청자료`, `ZB.사운드_교체_목록`이 README에 없었다 | 문서가 늘었는데 읽는 순서표가 9월 말에 멈춰 있다 |
 | 엔진 템플릿 잔재 정리 | `Source/WindCourier/Variant_Combat`, `Variant_Platforming`, `Variant_SideScrolling`이 모듈에 남아 있다 | 쓰지 않는 코드가 빌드에 포함된다. 코드 구조 변경 때 같이 정리할 수 있다 |
 
-- 원격 저장소(`github.com/diffth/01.wind-courier`)와 Git LFS는 설정돼 있다. 최신 커밋이 push됐는지는 확인하지 못했다.
+- ~~원격 저장소(`github.com/diffth/01.wind-courier`)와 Git LFS는 설정돼 있다.~~ **2026-10-22 확인: 그 저장소는 GitHub에 없고(404), 게임 소스는 지금 버전 관리가 없다** — [출시 준비 "소스 버전 관리"](ZR.릴리스타입_출시준비.md).
 
 ## 6. 《Naias》와 비교
 

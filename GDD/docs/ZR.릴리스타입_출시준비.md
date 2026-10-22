@@ -360,3 +360,28 @@ R1 메뉴·종료 → R4 프로젝트 정보 → R2 타이틀 → R3 설정 → 
 - **규칙**: PC 밖으로 나가는 빌드(itch.io·Steam·Epic 업로드, 등급 신청)는 올리기 전에 `<버전>_<종류>_<빌드 날짜>` 폴더로 통째로(`Windows/`·`Symbols/`·zip) 복사한다. 같은 버전을 다시 빌드해도 덮어쓰지 않고 새 폴더를 만든다 — `.pdb`는 그 빌드의 실행 파일과만 맞는다.
 - **2026-10-22 보관**: `Demo_1.0.0_2026-10-11`(itch.io 데모, 3.8 GB, `WindCourierDemo-Win64-Shipping.pdb` 포함), `1.0.0_Shipping_2026-10-09`(2.1 GB). 파일 79개 수 일치, `.pdb`·`WindCourier.exe`·데모 zip 해시 일치.
 - **남은 일(사용자)**: PC 밖에 한 벌 더(클라우드·외장 디스크). 두 디스크가 같은 PC 안이라 PC를 잃으면 함께 잃는다.
+
+### 1.0.x 변경 목록 (2026-10-22 정리)
+
+1.0.0 Shipping(`WindCourier.exe` 2026-10-09 18:04) 뒤에 바뀌었거나 바꾸기로 한 것. 다음 출시 빌드(Steam 순서표 ⑪)를 만들 때 이 목록으로 확인한다. **게임 소스는 지금 버전 관리가 없어**(아래) diff가 아니라 문서 기록과 파일 날짜로 모았다 — 빠진 것이 있을 수 있다.
+
+| # | 무엇 | 어디 | 상태 | 등급·화면 영향 |
+|---|---|---|---|---|
+| 1 | 휠 먼지 투명도 0.7 | `CourierJenny.cpp`(10-09 18:08, 빌드 4분 뒤) | 소스에 있음, 1.0.0에는 없음(데모에는 들어감) | 화면이 조금 다름 — 스크린샷·트레일러는 그대로 써도 된다고 본다 |
+| 2 | 크레딧 Freesound 이름 `Alcappuccino` → `kyles` | `FlightTestHUD.cpp` `DrawCredits`(10-11) | 소스에 있음 | 크레딧 화면 |
+| 3 | 독·스 "투하 가능" 안내를 "E / gamepad A"로 | `Content/FlightTest/Data/Translations/de.json`·`es.json`(10-11) | 소스에 있음 | 독·스 HUD 한 줄 |
+| 4 | 체험판 대상 `WINDCOURIER_DEMO` | `FlightTestSession.*`, `FlightTestHUD.cpp`, `WindCourierDemo.Target.cs`, `DefaultEngine.ini`(`DefaultGameTarget`, 10-11) | 소스에 있음 | 정식판은 0이라 동작이 같아야 한다 — **정식판 빌드에서 2일차 뒤 데모 카드가 뜨지 않는지** 확인 |
+| 5 | `-FlightReleaseHUD` | `FlightTestHUD.cpp`(10-11) | 소스에 있음 | 개발 빌드 전용, Shipping 영향 없음 |
+| 6 | Release README 크래시 메일 `info@ozs.co.kr` | `SourceArt/Release/README_읽어주세요.txt`(10-22) | 고침 | 패키지 안내문 |
+| 7 | 글자 크기 130 % 설정 화면 넘침 | `FlightTestHUD.cpp` UI 배율(Steam 출시 준비 7-1) | **할 일**(사용자 결정 2026-10-22) | 설정 화면 |
+| 8 | `DefaultGame.ini`가 10-14에 바뀜 | `Config/DefaultGame.ini` | **내용 미상** — 기록이 없다. 버전은 `1.0.0` 그대로 | 빌드 전에 확인 |
+| — | 사람 확인(⑦)·외부 피드백(⑧)에서 나올 수정 | | 대기 | |
+
+- 빌드할 때: `ProjectVersion`을 1.0.1로 올린다(R4). 1·2·3·7은 화면이 바뀌므로 Steam 출시 준비 6장 표(스크린샷·트레일러·등급 영상)를 다시 볼지 정한다 — 등급 내용(폭력·언어 등)에 닿는 변경은 없다.
+- 데모도 3·6·7을 반영하려면 `package_build.ps1 -Demo`로 다시 빌드해 butler로 올린다(같은 채널 `windows-demo`).
+
+### 소스 버전 관리 (2026-10-22 발견)
+
+- 게임 소스·에셋(`WindCourier/Source`, `Config`, `Content`, `Scripts`, `SourceArt`)은 **지금 어떤 git 저장소에도 없다.** 이 문서 저장소(`diffth/01.WindCourier`)는 2026-10-19 `WindCourier/*/`를 제외했고(`ea8b7c4`), 그날 프로젝트 폴더가 지금 위치로 옮겨졌다(폴더 날짜). 점검 문서의 `diffth/01.wind-courier`는 GitHub에 없고(404), D·E 드라이브에서 이 게임의 다른 저장소를 찾지 못했다.
+- 그 전에는 저장소가 있었다("10-09 미커밋 변경" 기록). 그 저장소가 다른 PC·드라이브·이름으로 남아 있는지는 사용자 확인.
+- 영향: 1.0.0 이후 무엇이 바뀌었는지 diff로 볼 수 없고(위 8번), 실수로 지운 파일을 되돌릴 수 없으며, 디스크를 잃으면 소스도 잃는다. 출시 빌드 보관(위)은 빌드만 지킨다.
