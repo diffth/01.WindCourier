@@ -254,6 +254,7 @@ R1 메뉴·종료 → R4 프로젝트 정보 → R2 타이틀 → R3 설정 → 
 - 크래시 리포터(사용자 결정: 넣되 보내기는 없이): `DefaultGame.ini` `bIncludeCrashReporter=True`, `package_build.ps1`의 BuildCookRun에 `-crashreporter`(ini만으로는 `CrashReportClient.exe`가 패키지에 들어가지 않았다). 튕기면 엔진 크래시 창이 뜨고 `Saved/Crashes/UECC-*`에 미니덤프·로그·상황 파일이 남는다. 크래시 서버가 없어 전송은 되지 않는다. 공개용 안내문에 그 폴더를 보내 달라는 문구를 넣었다. `-unattended`로 강제 크래시(`debug crash`)를 내 파일이 남는 것을 확인했다(창은 띄우지 않았다).
 - 확인용 옵션 `-FlightQuitAt=N`(실행 N초에 메뉴와 같은 방식으로 종료, Shipping에서는 무시). 테스트 20개 Success.
 - 남은 것: 엔딩까지 연속 3회 플레이(사람). 크래시 창 모습 확인(사람, 튕길 일이 있을 때).
+- **GPU 크래시 기록 발견(2026-10-22)**: `%LOCALAPPDATA%/WindCourier/Saved/Crashes/UECC-Windows-A4CEE34F…_0000`(2026-10-07 20:03) — `CrashType: GPUCrash`, "GPU Crash dump Triggered", Shipping, 명령줄 `-RenderOffscreen -ResX=1280 -ResY=720`, 시작 뒤 6,417초(약 107분). 날짜·명령줄로 보아 그날의 화면 밖 녹화·측정 중이었고(일반 플레이 아님), 문서에 기록이 없었다. 미니덤프는 그 폴더에 있다. 한 번뿐이라 원인은 모른다(긴 화면 밖 렌더링의 드라이버 시간 초과일 수 있음). **사람 확인 A(엔딩까지 한 판)에서 GPU 크래시가 다시 나는지 본다.**
 
 ### Q6 접근성 (2026-09-30)
 

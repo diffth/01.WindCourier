@@ -432,7 +432,7 @@ Epic도 포털에서 지원 연락처와 **개인정보 처리방침 URL**을 �
 - 비행 기록 CSV(`Saved/FlightTelemetry`)는 PC에만 쓰고, Shipping에서는 빠진다(점검 7장 "출시판 뒷문").
 - 크래시 리포터는 들어 있지만 보낼 서버가 없어 `Saved\Crashes`에만 남는다(출시 준비 Q5).
 - 세이브(`FlightDay.sav`)는 날짜·탱크·편지 상태뿐이다. Steam Auto-Cloud가 이 파일을 Steam 계정에 올리는데, 이것은 Steam의 기능이고 게임이 보내는 것이 아니다.
-- 확인할 것(사람): 방화벽으로 막은 PC에서 Shipping이 아무 경고 없이 도는지 한 번. 엔진 기본 기능이 몰래 연결을 시도하는지 이것으로 같이 본다.
+- **실행 확인(2026-10-22)**: 1.0.0 Shipping(`-windowed`)을 90초 띄우고 3초마다 그 프로세스(런처 `WindCourier.exe`와 `WindCourier-Win64-Shipping.exe`)의 TCP 연결·UDP 끝점을 모았다 — 시작·첫 실행 성능 측정·타이틀 동안 **0개**. 3초 사이에 열고 닫은 짧은 연결까지 잡는 방법은 아니다. 실행 전 `%LOCALAPPDATA%\WindCourier`를 백업하고 끝난 뒤 그대로 되돌렸다(엔진이 시작할 때 `Saved/Config/CrashReportClient/` 하위 폴더를 새로 만들고 예전 것을 지운다 — 세이브·설정은 바뀌지 않음).
 
 ### 12-4. 개인정보 안내 문구
 
