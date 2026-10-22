@@ -101,7 +101,7 @@
 
 | # | 항목 | 근거 | 권하는 조치 |
 |---|---|---|---|
-| 1 | **스토어 스크린샷에 개발 빌드 전용 글자가 보인다** | `release_1.0.0`의 비행 HUD 장면(02 상승기류, 04 투하 가능, 6개 언어) 아래 조작 줄에 "F1: diagnostics OFF"가 있다. 이 글자는 `FlightTestHUD.cpp`에서 `#if UE_BUILD_SHIPPING`의 반대쪽에만 있어 출시판 화면에는 없다. 스토어 초안 7장의 "화면 내용은 1.0.0 Shipping과 같다"는 이 한 줄에서 틀린다 | **옵션 넣음(2026-10-11)**: `-FlightReleaseHUD`(개발 빌드에서 출시판 조작 줄을 그림)를 `FlightTestHUD.cpp`에 넣고 `store_screenshots.ps1`이 항상 붙이게 했다. **남은 일(사용자)**: 빌드 뒤 6개 언어의 02·04를 다시 찍어 스토어에 올린 것과 바꾼다 |
+| 1 | **스토어 스크린샷에 개발 빌드 전용 글자가 보인다** | `release_1.0.0`의 비행 HUD 장면(02 상승기류, 04 투하 가능, 6개 언어) 아래 조작 줄에 "F1: diagnostics OFF"가 있다. 이 글자는 `FlightTestHUD.cpp`에서 `#if UE_BUILD_SHIPPING`의 반대쪽에만 있어 출시판 화면에는 없다. 스토어 초안 7장의 "화면 내용은 1.0.0 Shipping과 같다"는 이 한 줄에서 틀린다 | **옵션 넣음(2026-10-11)**: `-FlightReleaseHUD`(개발 빌드에서 출시판 조작 줄을 그림)를 `FlightTestHUD.cpp`에 넣고 `store_screenshots.ps1`이 항상 붙이게 했다. **다시 찍음(2026-10-22)**: 6개 언어 02·04 12장, `output/store_screenshots/release_1.0.0_hudfix/<언어>/`. F1 글자 없음·장면 같음을 확인. 지금 소스(1.0.x 변경 포함)의 에디터 빌드로 찍었다. **남은 일(사용자)**: 스토어에 올릴 때 `release_1.0.0`의 02·04 대신 이것을 쓴다 |
 | 2 | **크레딧의 Freesound 이름 하나가 실제와 다르다** | `DrawCredits`의 Freesound 줄은 `Alcappuccino`를 적고 `kyles`를 뺐다. `SourceArt/Audio/SOURCES.md`에서 시동음·정지음(`S_EngineStart`, `S_EngineStop`)은 kyles의 녹음(637893)이고, Alcappuccino는 어느 소리에도 없다. 2026-10-08에 시동음을 다시 바꾸면서 크레딧이 따라가지 못한 것으로 보인다. 출시 준비 R10 표의 소리 행도 같다 | CC0라 표기 의무는 없지만 넣기로 한 이름이므로 **고침(2026-10-11)**: 크레딧 줄과 R10 표를 `kyles`로 바꿨다. 다음 빌드에 들어간다 |
 | 3 | 독일어·스페인어 "투하 가능" 안내 | `de.json`은 "E / Gamepad A", `es.json`은 "E / mando A"로 적혀 있어 키보드·패드 표기가 한쪽으로 정리되지 않았다. 10월 8일 스크린샷에는 "E drücken"으로 바르게 나오므로 그 뒤 표를 고치다 생긴 것이다 | **고침(2026-10-11)**: 두 줄을 코드가 알아보는 "E / gamepad A"로 되돌렸다. 다음 빌드에 들어간다 |
 

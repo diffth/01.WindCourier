@@ -62,7 +62,7 @@ Steam 페이지를 열면 긴 소개 맨 아래와 토론 게시판 고정 글(�
 | `keyart/keyart_landscape.png` | `store_images/epic_landscape_2560x1440.png` | 2560×1440 | 로고 있음 |
 | `keyart/keyart_landscape_nologo.png` | `store_images/epic_landscape_nologo_2560x1440.png` | 2560×1440 | 기사 머리 이미지용 |
 | `keyart/keyart_portrait.png` | `store_images/epic_portrait_1200x1600.png` | 1200×1600 | 로고 없는 판도 있음 |
-| `screenshots/01_coast.png` … | `store_screenshots/release_1.0.0/en/` 12장 | 1920×1080 | **02·04는 다시 찍은 뒤 넣는다**(개발 빌드 글자, 점검 7장 1번). UI가 없는 장면이 대부분이라 영어판 하나로 충분하다. 한국 매체용으로 `ko/` 02·04·06·07을 더한다 |
+| `screenshots/01_coast.png` … | `store_screenshots/release_1.0.0/en/` 12장 | 1920×1080 | 02·04는 다시 찍은 것(`release_1.0.0_hudfix`, 2026-10-22). UI가 없는 장면이 대부분이라 영어판 하나로 충분하다. 한국 매체용으로 `ko/` 02·04·06·07을 더한다 |
 | `video/trailer.mp4` | `video/trailer_steam.mp4` | 1920×1080, 49초 | `trailer_steam_goldtape.mp4`, `trailer_steam_oldsmoke.mp4`는 넣지 않는다(옛 소리·연기) |
 
 - 없는 것: 움직이는 GIF(소셜·기사용 짧은 반복 영상)와 개발 중 사진. GIF는 트레일러 클립(`output/video/trailer_clips/`)에서 3~5초 잘라 만들 수 있다 — 필요하면 요청.
@@ -73,7 +73,8 @@ Steam 페이지를 열면 긴 소개 맨 아래와 토론 게시판 고정 글(�
 - [x] 1장 둘 곳 정하기 — itch.io(2026-10-22)
 - [ ] 통일 로고(사용자 제작) 받기
 - [ ] 2장 개발자 소개, 4장 영상 이용 안내 문구 확인
-- [ ] 스크린샷 02·04 다시 찍기(Steam 출시 준비 2장 ②)를 마친 뒤 zip 묶기
+- [x] 스크린샷 02·04 다시 찍기(Steam 출시 준비 2장 ②) — 2026-10-22
+- [ ] zip 묶기 — 로고 말고는 `output/presskit/WindCourier_PressKit/`에 모아 둠(2026-10-22, 82 MB: 키아트 4, 스크린샷 en 12·ko 4, 트레일러). 남은 것: `logo/`, `README.txt`(2·4·7장 내용, 개발자 소개·영상 이용 안내 확정 뒤)
 - [ ] Steam 페이지 공개 뒤 링크 채우기
 
 ## 7. 커뮤니티 채널 (2026-10-22 제안, 사용자 결정 전)
