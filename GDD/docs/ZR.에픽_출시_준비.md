@@ -102,7 +102,7 @@ powershell -ExecutionPolicy Bypass -File WindCourier/Scripts/epic_upload.ps1 `
 - [ ] Epic 런처로 설치·실행 한 번(비공개 채널).
 - [ ] 세이브 경로 확인: Epic 런처로 실행해도 `%LOCALAPPDATA%/WindCourier/Saved/SaveGames`에 생기는지. 같은 PC에서 Steam판과 Epic판이 세이브를 같이 쓰게 되는데, 같은 빌드라 문제는 없다.
 - [ ] 출시 할인: 포털의 Discount Management Tool에 출시 전에 등록.
-- [ ] Mac: 1.0은 Windows만. Mac을 낸다면 코드 서명·공증이 먼저(출시 준비 R5 Mac 기록).
+- [x] Mac: 1.0은 Windows만(사용자 결정 2026-10-22, 출시 뒤 요청을 보고 판단). Mac을 낸다면 코드 서명·공증이 먼저(출시 준비 R5 Mac 기록).
 - [ ] README: Release README의 의견 창구가 "Steam 토론 게시판"이다. Epic 구매자를 위해 한 줄 추가할지 결정(예: 이메일이나 itch.io 댓글).
 
 ## 출처
