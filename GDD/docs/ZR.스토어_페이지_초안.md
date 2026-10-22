@@ -405,7 +405,7 @@ AI 사용 고지: 이 게임은 개발 과정에서 생성형 AI를 사용했습
 
 ## 12. 지원 연락처·개인정보·크래시 보고 (2026-10-22 초안)
 
-> [프로젝트 점검](ZR.프로젝트_점검.md) 5장 "빠져 있는 것"의 세 줄(지원 연락처·개인정보 안내, 크래시 보고 받는 길). 상태: 초안(사용자 검토 전). **지원 메일 주소는 사용자가 정한다** — 아래 `[지원 메일]` 자리. 개인 메일 대신 이 게임 전용 주소(예: 새 Gmail)를 권한다. 스토어 페이지에 공개되고 등급분류·크레딧에도 같은 주소를 쓰게 된다.
+> [프로젝트 점검](ZR.프로젝트_점검.md) 5장 "빠져 있는 것"의 세 줄(지원 연락처·개인정보 안내, 크래시 보고 받는 길). 상태: 초안(사용자 검토 전). **지원 메일: `info@ozs.co.kr`(사용자 결정 2026-10-22).** 스토어 페이지에 공개되고 등급분류·크레딧에도 같은 주소를 쓴다.
 
 ### 12-1. 왜 메일이 필요한가
 
@@ -419,7 +419,7 @@ Steamworks 앱 관리 → 스토어 페이지 → 기본 정보의 지원 정보
 | 칸 | 값 |
 |---|---|
 | 지원 웹사이트 | 비워 둔다(전용 사이트 없음). 나중에 itch.io 페이지를 쓸 수 있다 |
-| 지원 이메일 | `[지원 메일]` |
+| 지원 이메일 | `info@ozs.co.kr` |
 | 토론 게시판 | 켠다. 고정 글은 12-5 |
 
 Epic도 포털에서 지원 연락처와 **개인정보 처리방침 URL**을 받을 수 있다(필수 여부 포털 확인). 필수면 12-4 글을 itch.io 페이지 아래나 GitHub Pages 같은 공개 페이지 하나에 올리고 그 주소를 넣는다 — 저장소는 Fab 에셋 때문에 비공개를 유지해야 하므로(점검 7장) 별도 공개 저장소나 페이지로 한다.
@@ -442,14 +442,14 @@ Epic도 포털에서 지원 연락처와 **개인정보 처리방침 URL**을 �
 
 ```
 개인정보: 바람 배달부는 인터넷에 연결하지 않으며, 플레이어 정보나 플레이 기록을 수집·전송하지 않습니다. 세이브와 설정은 이 PC의 %LOCALAPPDATA%\WindCourier\Saved 에만 저장됩니다(Steam 클라우드를 켜면 Steam이 세이브를 계정에 보관합니다). 크래시 기록도 자동으로 보내지지 않습니다. 메일로 보내 주신 크래시 파일은 원인을 찾는 데만 쓰고, 해결 뒤 지웁니다.
-문의: [지원 메일]
+문의: info@ozs.co.kr
 ```
 
 **English**
 
 ```
 Privacy: Wind Courier does not connect to the internet and does not collect or send any player data or play records. Saves and settings stay on this PC in %LOCALAPPDATA%\WindCourier\Saved (with Steam Cloud on, Steam keeps your save in your account). Crash reports are never sent automatically. Crash files you email us are used only to find the problem and are deleted once it is fixed.
-Contact: [지원 메일]
+Contact: info@ozs.co.kr
 ```
 
 독·프·이·스는 2-1장과 같이 AI 번역으로 붙이되, 원어민 검수 전이라는 점은 같다.
@@ -468,7 +468,7 @@ Contact: [지원 메일]
 게임이 튕겼다면:
 1. Win+R → %LOCALAPPDATA%\WindCourier\Saved\Crashes 입력 → 확인
 2. 가장 최근 폴더(UECC-로 시작)를 압축합니다
-3. [지원 메일] 로 보내 주세요. 이 게시판에는 파일을 붙일 수 없습니다.
+3. info@ozs.co.kr 로 보내 주세요. 이 게시판에는 파일을 붙일 수 없습니다.
 크래시 파일에는 PC 사양과 게임 로그가 들어 있고, 다른 개인 파일은 들어 있지 않습니다.
 
 [English]
@@ -480,7 +480,7 @@ Please post a new thread for anything that got you stuck, looked wrong or sounde
 If the game crashed:
 1. Press Win+R, type %LOCALAPPDATA%\WindCourier\Saved\Crashes and press OK
 2. Zip the newest folder (it starts with UECC-)
-3. Email it to [지원 메일] — files can't be attached here.
+3. Email it to info@ozs.co.kr — files can't be attached here.
 The crash files contain your PC specs and the game log, and no other personal files.
 ```
 
@@ -489,8 +489,8 @@ The crash files contain your PC specs and the game log, and no other personal fi
 
 ### 12-6. Release README에 고칠 곳
 
-`SourceArt/Release/README_읽어주세요.txt`의 "의견과 오류" 두 번째 줄의 "보내 주시면"에 보낼 곳을 넣는다. 지원 메일이 정해지면 고치고 다음 빌드(1.0.x)에 들어간다.
+`SourceArt/Release/README_읽어주세요.txt`의 "의견과 오류" 두 번째 줄의 "보내 주시면"에 보낼 곳을 넣는다. **2026-10-22 고침**(Release·Demo 둘 다) — 다음 빌드(1.0.x)와 다음 데모 빌드에 들어간다.
 
-- 한: `어디서 튕겼는지와 함께 그 폴더를 압축해 [지원 메일] 로 보내 주시면 원인을 찾는 데 큰 도움이 됩니다. (자동으로 전송되지는 않습니다)`
-- 영: `Zipping that folder and emailing it to [지원 메일] with where it happened helps a lot. (Nothing is sent automatically.)`
+- 한: `어디서 튕겼는지와 함께 그 폴더를 압축해 info@ozs.co.kr 로 보내 주시면 원인을 찾는 데 큰 도움이 됩니다. (자동으로 전송되지는 않습니다)`
+- 영: `Zipping that folder and emailing it to info@ozs.co.kr with where it happened helps a lot. (Nothing is sent automatically.)`
 - 데모 안내문(`SourceArt/Demo/README_읽어주세요.txt` 47·89행 근처)에도 같은 "보내 주시면" 줄이 있어 같이 고친다. itch.io 페이지의 "아래 댓글로" 줄에도 메일을 덧붙인다.

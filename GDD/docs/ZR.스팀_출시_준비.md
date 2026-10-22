@@ -101,6 +101,30 @@ powershell -ExecutionPolicy Bypass -File WindCourier/Scripts/steam_upload.ps1 `
 | 스토어 스크린샷 6개 언어 | `store_screenshots.ps1`(언어별 4장 + 영어 12장) | **1.0.0 끝(2026-10-08)** — `output/store_screenshots/release_1.0.0/` |
 | 트레일러 | `video_trailer_clips.ps1` → `video_trailer.py` | 연기 바꾼 뒤(2026-10-07). **2026-10-08 새 엔진 소리로 다시 합침**(`video_trailer.py`만 — 엔진·바람·들판 루프를 `SourceArt/Audio`에서 섞으므로 영상은 그대로, 49.4초). 예전 GOLD TAPE 엔진판은 `trailer_steam_goldtape.mp4` — 올리지 말 것. 같은 날 해안 나무·고개 눈보라를 바꾼 뒤 `t03_coast`·`t07_pass_eve` 두 클립만 다시 녹화해 다시 합쳤다(이전 클립·트레일러는 `output/video/trailer_clips_before_1008/`) |
 
+## 7. Steam Deck (2026-10-22 초안)
+
+게임패드를 완전히 지원하므로 Deck 사용자가 시도할 가능성이 높다. Deck 호환성 등급(검증됨·플레이 가능·지원 안 됨)은 개발자가 스스로 매기지 않고 Valve가 직접 검사해 매긴다(Steamworks의 Steam Deck 호환성 검토 — 신청 시점·기준 원문은 포털 확인). 아래는 코드만 읽고 내린 판단이고, Deck 실기나 1280×800 캡처로 확인한 것은 없다.
+
+### 코드로 확인한 것
+
+| Valve가 보는 것 | 이 게임 | 판단 |
+|---|---|---|
+| 입력: 모든 동작을 패드로 | 비행·카운터·서랍·메뉴·편지·크레딧 모두 패드 버튼이 있다. 키보드에만 있는 조작은 개발용 F1·F2뿐이고 Shipping에서 빠진다. `N`·마우스 왼쪽은 입력 장치 감지에만 쓴다 | 문제 없음 |
+| 입력: 화면의 버튼 표기 | Xbox 이름(A/B/X/Y, LB/RB, LT/RT, View/Menu). Deck은 A/B/X/Y가 같고 L1/R1, L2/R2, ⧉/☰로 적혀 있다 | Xbox 표기를 허용하는지 포털 확인. 안 되면 "플레이 가능" 쪽 |
+| 입력: 글자 입력 | 이름 입력 등 글자를 치는 곳이 없다 | 화상 키보드 필요 없음 |
+| 화면: 1280×800 | 해상도 목록은 1280×720 이상을 모두 넣으므로 1280×800이 들어간다. UI 배율 `max(1, min(1280/1600, 800/900))` = 1 → 1280×720과 같은 배치에 세로 80px 여유 | 캡처 확인 필요(Q1의 5개 해상도에 없음) |
+| 화면: 글자 크기 | 기본 글꼴 13px, 가장 작게 그리는 글자는 0.85배(약 11px — 버전 표기 등). 글자 크기 130%는 1280×800에서 111%까지만 커진다(세로 720 제한) | Valve 최소 기준(1280×800에서 9px로 알려짐, 포털 확인)보다 크다 |
+| 실행: 런처·안티치트·계정 | 없음. Steam·Epic SDK도 없다(스토어 초안 10장 결정 A) | 문제 없음 |
+| 실행: Proton | Windows용 UE 5.8 패키지. Proton에서 돌아가는지는 모른다 | 실기 확인 필요 |
+| 성능 | 기본은 Lumen을 쓰는 중간 이상일 수 있다. 첫 실행의 성능 측정이 Deck에서 무엇을 고를지 모른다. 낮음은 Lumen과 가상 그림자를 끈다(Q2) | **가장 큰 위험.** 30fps가 나오는지 모른다 |
+
+### 할 수 있는 것
+
+- [ ] **1280×800 캡처**(Development 빌드, Deck 없이 됨) — Q1과 같은 방식으로 `-RenderOffscreen -windowed -ForceRes -ResX=1280 -ResY=800`. 타이틀·설정·카운터·편지·비행·정산·크레딧. 한국어·영어, 글자 크기 100%·130%.
+- [ ] **낮은 사양 흉내** — Deck이 없으면 정확히 재기 어렵다. 그래픽 품질 낮음으로 1280×800 프레임을 재 두면 Valve 검사 결과를 읽을 때 참고가 된다.
+- [ ] Deck을 가진 사람이 있으면 외부 피드백(2장 ⑧) 때 Deck 한 판을 부탁한다 — 실행 여부, 첫 실행에 고른 품질, 프레임, 글자가 읽히는지.
+- 스토어 페이지에는 Deck 지원을 따로 적지 않는다. 검사 결과가 나오면 Steam이 페이지에 표시한다.
+
 ## 출처
 
 - [게임콘텐츠등급분류위원회 등급분류 신청 및 절차](https://www.gcrb.or.kr/Mobile_NEW/sub/classification%20Application.aspx) · [수수료 계산](https://www.gcrb.or.kr/Mobile_NEW/sub/fee%20calculation.aspx)
