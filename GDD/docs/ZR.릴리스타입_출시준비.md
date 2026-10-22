@@ -374,7 +374,7 @@ R1 메뉴·종료 → R4 프로젝트 정보 → R2 타이틀 → R3 설정 → 
 | 5 | `-FlightReleaseHUD` | `FlightTestHUD.cpp`(10-11) | 소스에 있음 | 개발 빌드 전용, Shipping 영향 없음 |
 | 6 | Release README 크래시 메일 `info@ozs.co.kr` | `SourceArt/Release/README_읽어주세요.txt`(10-22) | 고침 | 패키지 안내문 |
 | 7 | 글자 크기 130 % 설정 화면 넘침 | `FlightTestHUD.cpp` UI 배율(Steam 출시 준비 7-1) | **할 일**(사용자 결정 2026-10-22) | 설정 화면 |
-| 8 | `DefaultGame.ini`가 10-14에 바뀜 | `Config/DefaultGame.ini` | **내용 미상** — 기록이 없다. 버전은 `1.0.0` 그대로 | 빌드 전에 확인 |
+| 8 | `DefaultGame.ini`에 `[/Script/Engine.AssetManagerSettings]` `+PrimaryAssetTypesToScan=GameFeatureData`(스캔 폴더 없음) 추가 | `Config/DefaultGame.ini`(10-14) | 소스에 있음 — **2026-10-22 확인**: 1.0.0·데모 pak의 설정을 `UnrealPak -Extract`로 꺼내 지금 파일과 비교했다. 주석을 빼면 이 항목과 4번의 `DefaultGameTarget`만 다르다(`DefaultInput.ini`는 같음) | 시작 로그의 GameFeatures 오류를 없애는 설정. 게임 동작 영향 없음 |
 | — | 사람 확인(⑦)·외부 피드백(⑧)에서 나올 수정 | | 대기 | |
 
 - 빌드할 때: `ProjectVersion`을 1.0.1로 올린다(R4). 1·2·3·7은 화면이 바뀌므로 Steam 출시 준비 6장 표(스크린샷·트레일러·등급 영상)를 다시 볼지 정한다 — 등급 내용(폭력·언어 등)에 닿는 변경은 없다.
@@ -387,6 +387,6 @@ R1 메뉴·종료 → R4 프로젝트 정보 → R2 타이틀 → R3 설정 → 
 - 영향: 1.0.0 이후 무엇이 바뀌었는지 diff로 볼 수 없고(위 8번), 실수로 지운 파일을 되돌릴 수 없으며, 디스크를 잃으면 소스도 잃는다. 출시 빌드 보관(위)은 빌드만 지킨다.
 - **2026-10-22 해결(1단계, 사용자 결정: 로컬 git부터)**: `WindCourier/`에 게임 전용 저장소를 새로 만들었다(이 문서 저장소와 별개, 브랜치 `main`). 원격은 `E:/AI_DEV/Game/01.WindCourier_Source.git`(bare, D와 다른 디스크). 첫 커밋 `01fd9d4` — 파일 2,879개(Content 2,393·Source 194·Scripts 115·SourceArt 158 등), 약 3.9 GB. LFS는 쓰지 않았다(로컬 원격이라 필요 없음).
   - 빼는 것(`WindCourier/.gitignore`): `Binaries`, `Intermediate`, `DerivedDataCache`, `Saved`, `Build/*/FileOpenOrder`, IDE 파일(`.vs`, `.idea`, `.sln`). 넣은 도구 설정(`.mcp.json`, `.codex` 등)은 로컬 MCP 주소뿐이라 비밀 정보가 없음을 확인했다. `.gitattributes`가 에셋·미디어를 binary로 둔다.
-  - 첫 커밋은 1.0.0 이후 변경이 섞인 상태라 위 8번(`DefaultGame.ini`)은 여전히 diff로 못 본다. 이제부터의 변경은 커밋으로 남는다.
+  - 첫 커밋은 1.0.0 이후 변경이 섞인 상태다(위 표). 설정 파일은 1.0.0 pak에서 꺼내 비교로 메웠고(8번), 코드는 문서 기록에 기댄다. 이제부터의 변경은 커밋으로 남는다.
   - 문서 저장소는 `WindCourier/` 바로 아래 파일 몇 개(`WindCourier.uproject`, `FLIGHT_TEST.md` 등)를 계속 함께 추적한다 — 두 저장소에 같이 기록된다. 새 저장소의 `.gitignore`·`.gitattributes`는 문서 저장소에서 제외했다.
   - **남은 일**: PC 밖 사본(2단계) — GitHub 비공개 + LFS로 원격만 추가한다. 그때 큰 파일을 LFS로 옮기는 `git lfs migrate`가 필요하다(100 MB 넘는 파일 2개, Megaplants 3.1 GB).
