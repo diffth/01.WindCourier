@@ -494,3 +494,22 @@ The crash files contain your PC specs and the game log, and no other personal fi
 - 한: `어디서 튕겼는지와 함께 그 폴더를 압축해 info@ozs.co.kr 로 보내 주시면 원인을 찾는 데 큰 도움이 됩니다. (자동으로 전송되지는 않습니다)`
 - 영: `Zipping that folder and emailing it to info@ozs.co.kr with where it happened helps a lot. (Nothing is sent automatically.)`
 - 데모 안내문(`SourceArt/Demo/README_읽어주세요.txt` 47·89행 근처)에도 같은 "보내 주시면" 줄이 있어 같이 고친다. itch.io 페이지의 "아래 댓글로" 줄에도 메일을 덧붙인다.
+
+## 13. 법적 고지 (2026-10-22 초안)
+
+Steamworks 스토어 페이지의 법적 고지(Legal) 칸과 Epic 포털의 같은 칸에 넣는다. 저작권·Unreal 세 줄은 게임 크레딧(`FlightTestHUD.cpp` `DrawCredits`), Meshy 줄은 2장 표기를 **글자 그대로** 옮겼고, 글꼴·소리 줄은 크레딧 내용을 한 줄로 묶었다 — 크레딧을 고치면 여기도 고친다. 법적 문장이라 영어 한 벌로 둔다(언어별 칸이 있어도 같은 글).
+
+```
+Copyright (c) 2026 ozs. All rights reserved.
+
+Wind Courier uses Unreal® Engine. Unreal® is a trademark or registered trademark of Epic Games, Inc. in the United States of America and elsewhere.
+Unreal® Engine, Copyright 1998 – 2026, Epic Games, Inc. All rights reserved.
+
+Character 3D models generated with Meshy (meshy.ai), used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Modified: refined in Blender and rigged for animation.
+Gowun Batang typeface: Copyright 2021 The Gowun Batang Project Authors, licensed under the SIL Open Font License 1.1.
+Sound: CC0 and public domain recordings - BigSoundBank, Kenney, U.S. National Park Service, OpenGameArt; Freesound: TRP, JLWSound, LOVEBURD, kyles, Mick_, lwdickens.
+```
+
+- 넣은 까닭: Unreal 두 문장은 엔진 EULA가 요구하는 표기(R10, 2026-10-07 EULA PDF와 대조), Meshy는 CC BY 4.0의 출처 표기 조건(R9). 글꼴·소리는 요구는 없지만(OFL 전문은 패키지 `Licenses/`, CC0) 크레딧과 같게 적었다.
+- 기호: 크레딧의 en dash(–)·® 기호는 그대로 두었다. 칸이 일반 글만 받아 기호가 깨지면 `(R)`·`-`로 바꾼다.
+- AI 사용 고지는 여기 넣지 않는다 — Steam은 설문의 AI 공개 항목, Epic은 긴 설명 끝(에픽 출시 준비 4장).

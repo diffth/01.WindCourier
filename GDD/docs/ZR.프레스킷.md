@@ -65,7 +65,8 @@ Steam 페이지를 열면 긴 소개 맨 아래와 토론 게시판 고정 글(�
 | `screenshots/01_coast.png` … | `store_screenshots/release_1.0.0/en/` 12장 | 1920×1080 | 02·04는 다시 찍은 것(`release_1.0.0_hudfix`, 2026-10-22). UI가 없는 장면이 대부분이라 영어판 하나로 충분하다. 한국 매체용으로 `ko/` 02·04·06·07을 더한다 |
 | `video/trailer.mp4` | `video/trailer_steam.mp4` | 1920×1080, 49초 | `trailer_steam_goldtape.mp4`, `trailer_steam_oldsmoke.mp4`는 넣지 않는다(옛 소리·연기) |
 
-- 없는 것: 움직이는 GIF(소셜·기사용 짧은 반복 영상)와 개발 중 사진. GIF는 트레일러 클립(`output/video/trailer_clips/`)에서 3~5초 잘라 만들 수 있다 — 필요하면 요청.
+- GIF(2026-10-22 만듦): `gif/wingbird.gif`(날개 위 새, `t10_wingbird` 3초부터), `gif/pass_evening.gif`(고개 저녁, `t07_pass_eve` 2초부터), `gif/flight_fields.gif`(들판 비행, `t03_coast` 2초부터). 모두 4초·640×360·15 fps·128색, 3.0~3.6 MB, HUD 글자 없음. 4초로 자른 것이라 반복 이음매에서 장면이 튄다.
+- 없는 것: 개발 중 사진.
 - zip 맨 위에 `README.txt`(2장 표 + 3장 한 줄 소개 + 4장 고지·이용 안내 + 연락처)를 둔다.
 
 ## 6. 남은 일
@@ -74,7 +75,7 @@ Steam 페이지를 열면 긴 소개 맨 아래와 토론 게시판 고정 글(�
 - [ ] 통일 로고(사용자 제작) 받기
 - [ ] 2장 개발자 소개, 4장 영상 이용 안내 문구 확인
 - [x] 스크린샷 02·04 다시 찍기(Steam 출시 준비 2장 ②) — 2026-10-22
-- [ ] zip 묶기 — 로고 말고는 `output/presskit/WindCourier_PressKit/`에 모아 둠(2026-10-22, 82 MB: 키아트 4, 스크린샷 en 12·ko 4, 트레일러). `README.txt` 초안도 넣음(사실표·한 줄 소개 한·영·AI 고지 원문 그대로, 개발자 소개와 영상 이용 안내는 `[TO CONFIRM]` 자리). 남은 것: `logo/`, README의 두 자리, 7장 채널 링크
+- [ ] zip 묶기 — 로고 말고는 `output/presskit/WindCourier_PressKit/`에 모아 둠(2026-10-22, 약 105 MB: 키아트 4, 스크린샷 en 12·ko 4, 트레일러, GIF 3). GIF 3개(5장)와 `README.txt` 초안도 넣음(사실표·한 줄 소개 한·영·AI 고지 원문 그대로, 개발자 소개와 영상 이용 안내는 `[TO CONFIRM]` 자리). 남은 것: `logo/`, README의 두 자리, 7장 채널 링크
 - [ ] Steam 페이지 공개 뒤 링크 채우기
 
 ## 7. 커뮤니티 채널 (2026-10-22 제안, 사용자 결정 전)

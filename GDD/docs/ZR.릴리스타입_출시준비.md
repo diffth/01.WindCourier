@@ -374,10 +374,16 @@ R1 메뉴·종료 → R4 프로젝트 정보 → R2 타이틀 → R3 설정 → 
 | 4 | 체험판 대상 `WINDCOURIER_DEMO` | `FlightTestSession.*`, `FlightTestHUD.cpp`, `WindCourierDemo.Target.cs`, `DefaultEngine.ini`(`DefaultGameTarget`, 10-11) | 소스에 있음 | 정식판은 0이라 동작이 같다 — **코드로 확인(2026-10-22)**: `WINDCOURIER_DEMO`를 쓰는 세 곳(버전 표기 " demo", 휴식 때 2일차 뒤 멈춤, 데모 끝 카드)이 모두 이 값으로 막혀 있고, 정의는 `WindCourierDemo.Target.cs`에만 있다. `package_build.ps1`은 `-Demo` 없이 `WindCourier` 대상으로 빌드한다. 사람 확인 A(엔딩까지 한 판)에서 3일차가 열리면 실기로도 확인된다 |
 | 5 | `-FlightReleaseHUD` | `FlightTestHUD.cpp`(10-11) | 소스에 있음 | 개발 빌드 전용, Shipping 영향 없음 |
 | 6 | Release README 크래시 메일 `info@ozs.co.kr` | `SourceArt/Release/README_읽어주세요.txt`(10-22) | 고침 | 패키지 안내문 |
-| 7 | 글자 크기 130 % 설정 화면 넘침 | `FlightTestHUD.cpp` UI 배율(Steam 출시 준비 7-1) | **할 일**(사용자 결정 2026-10-22) | 설정 화면 |
+| 7 | 글자 크기 130 % 설정 화면 넘침 | `FlightTestHUD.cpp` `DrawSettings`(10-22) | 소스에 있음 — 종이가 화면(세로 720)에 안 들어갈 때만 줄 간격 여백(8)을 줄인다. UI 배율은 그대로라 다른 화면 글자 크기는 안 바뀐다. 에디터 `-game` 캡처로 확인(Steam 출시 준비 7-1) | 설정 화면(130 %에서 줄 간격만 조금 좁아짐) |
 | 8 | `DefaultGame.ini`에 `[/Script/Engine.AssetManagerSettings]` `+PrimaryAssetTypesToScan=GameFeatureData`(스캔 폴더 없음) 추가 | `Config/DefaultGame.ini`(10-14) | 소스에 있음 — **2026-10-22 확인**: 1.0.0·데모 pak의 설정을 `UnrealPak -Extract`로 꺼내 지금 파일과 비교했다. 주석을 빼면 이 항목과 4번의 `DefaultGameTarget`만 다르다(`DefaultInput.ini`는 같음) | 시작 로그의 GameFeatures 오류를 없애는 설정. 게임 동작 영향 없음 |
+| 9 | Steam Deck이면 첫 실행 품질 낮음 | `FlightSettings.cpp` `ChooseFirstRunQuality`(10-22) | 소스에 있음 — 환경 변수 `SteamDeck=1`일 때만. 에디터 `-game`으로 첫 실행 흉내 확인(Steam 출시 준비 7-2) | 다른 PC 영향 없음 |
 | — | 사람 확인(⑦)·외부 피드백(⑧)에서 나올 수정 | | 대기 | |
 
+- 7·9번을 넣은 뒤 자동 테스트(`Automation RunTests WindCourier.Flight`, FLIGHT_TEST.md의 명령) 20개 모두 Success(2026-10-22).
+- **1.0.1 연습 빌드(2026-10-22, 사용자 요청)**: `ProjectVersion=1.0.1`(`Config/DefaultGame.ini`)로 올리고 1~9번이 든 Shipping을 `D:/AI/ozs/Game/WindCourier_1.0.1_Shipping/`에 만들었다. 사람 확인(⑦)·외부 피드백(⑧) 반영 전이라 **출시용이 아니다** — 반영 뒤 다시 빌드한다. PC 밖으로 나가지 않아 E 드라이브 보관 대상이 아니다(위 "출시 빌드 보관").
+  - 빌드: 다른 프로젝트 에디터의 Live Coding이 켜져 있으면 `package_build.ps1`의 에디터 컴파일 단계가 막힌다(UBT가 같은 엔진 실행 파일로 판단). 에디터를 먼저 빌드해 두고 같은 BuildCookRun 명령에 `-nocompileeditor`를 붙여 돌린 뒤 `package_build.ps1 -SkipBuild`로 마무리했다. `Failed to find object` 0, 파일 34개(1.0.0과 같음), 1.9 GB.
+  - 확인: pak 안 `ProjectVersion=1.0.1`, README 지원 메일 들어감, `Symbols/`에 `.pdb` 분리. 화면 밖 렌더링으로 90초 실행 — TCP·UDP 연결 0, 새 크래시 폴더 없음. 실행 전 `%LOCALAPPDATA%/WindCourier`를 백업했다가 되돌렸다(차이 0).
+  - 화면(버전 표기 1.0.1, 130 % 설정, 크레딧 `kyles`)은 Shipping에 캡처 기능이 없어 이 빌드로는 보지 않았다 — 같은 코드의 에디터 캡처로 봤다(7번). 사람 확인 때 이 빌드로 하면 함께 확인된다.
 - 빌드할 때: `ProjectVersion`을 1.0.1로 올린다(R4). 1·2·3·7은 화면이 바뀌므로 Steam 출시 준비 6장 표(스크린샷·트레일러·등급 영상)를 다시 볼지 정한다 — 등급 내용(폭력·언어 등)에 닿는 변경은 없다.
 - 데모도 3·6·7을 반영하려면 `package_build.ps1 -Demo`로 다시 빌드해 butler로 올린다(같은 채널 `windows-demo`).
 

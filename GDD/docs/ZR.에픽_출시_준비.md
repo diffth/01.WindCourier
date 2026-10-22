@@ -63,7 +63,7 @@
 | 소셜 미리보기 (선택) | `output/store_images/epic_social_1200x1200.jpg` — 1200×1200 jpg, 4 MB 이하. 프로펠러~조종석 정사각형 + 로고, 0.6 MB |
 | 만드는 법 | 이미지: `python WindCourier/Scripts/make_epic_keyart.py` / 스크린샷·트레일러: `python WindCourier/Scripts/make_epic_media.py`. 스크린샷이나 트레일러를 다시 만들면 뒤의 것을 다시 돌린다 |
 | AI 사용 고지 | [출시 준비 R9](ZR.릴리스타입_출시준비.md) 문안. Epic 포털에 AI 공개 항목이 있는지 확인하고, 없으면 긴 설명 끝에 넣는다 |
-| 법적 고지 | 크레딧과 같은 Unreal Engine 문장 |
+| 법적 고지 | 크레딧과 같은 Unreal Engine 문장 — 넣을 글은 [스토어 페이지 초안 13장](ZR.스토어_페이지_초안.md)(Steam과 같은 글) |
 | 가격 | **$7.99**(Steam과 같게), 지역 가격은 Epic 권장값. 출시 주 10 % 할인도 Steam과 같게 |
 | 실행 설정 | 실행 파일 `WindCourier.exe`, Windows 64비트 |
 | 사전 요구 설치 | Visual C++ 2015-2022 x64 — Steam과 같은 이유(`-prereqs` 없이 빌드). 포털 설정이 아니라 **업로드 명령의 인자**로 넣는다(5장, `epic_upload.ps1`이 처리) |
@@ -103,7 +103,7 @@ powershell -ExecutionPolicy Bypass -File WindCourier/Scripts/epic_upload.ps1 `
 - [ ] 세이브 경로 확인: Epic 런처로 실행해도 `%LOCALAPPDATA%/WindCourier/Saved/SaveGames`에 생기는지. 같은 PC에서 Steam판과 Epic판이 세이브를 같이 쓰게 되는데, 같은 빌드라 문제는 없다.
 - [ ] 출시 할인: 포털의 Discount Management Tool에 출시 전에 등록.
 - [x] Mac: 1.0은 Windows만(사용자 결정 2026-10-22, 출시 뒤 요청을 보고 판단). Mac을 낸다면 코드 서명·공증이 먼저(출시 준비 R5 Mac 기록).
-- [ ] README: Release README의 의견 창구가 "Steam 토론 게시판"이다. Epic 구매자를 위해 한 줄 추가할지 결정(예: 이메일이나 itch.io 댓글).
+- [x] README: Release README의 의견 창구가 "Steam 토론 게시판"이다. Epic 구매자를 위해 한 줄 추가할지 결정(예: 이메일이나 itch.io 댓글). — **추가 없이 닫음(사용자 2026-10-22)**: 같은 README에 지원 메일 `info@ozs.co.kr`이 들어가(스토어 초안 12-6) Epic 구매자도 연락할 곳이 있다.
 
 ## 출처
 
